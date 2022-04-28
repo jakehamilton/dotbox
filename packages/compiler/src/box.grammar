@@ -1,0 +1,88 @@
+This file contains scratch notes for the grammar of Box.
+It's not using a strict grammar syntax, but is similar to
+what you might see in those.
+
+---
+
+root = repeat <attrs>
+
+comment = <single-line-comment> or <multi-line-comment>
+single-line-comment = "(//.+)\n"
+multi-line-comment = "/\* ... \*/"
+
+ident = "[a-zA-Z][a-zA-Z_]+[\?]?" or <string>
+expr = (repeat <comment>) <sub-expr>
+sub-expr = <number> or <string> or <bool> or <set> or <list>
+
+number = <decimal-number> or <binary-number> or <octal-number> or <hex-number>
+decimal-number = "\d(?:[\d_]+)?(?:\.[\d_]+)?"
+binary-number = "0b[01](?:[01_]+)?"
+octal-number = "0o[0-7](?:[0-7_]+)?"
+hex-number = "0x[0-9a-fA-F](?:[0-9a-fA-F_]+)?"
+
+string = "\"^[\"]+\""
+
+bool = "true" or "false"
+
+set = { (repeat <attrs>) }
+attrs = (repeat <comment>) <ident> = <expr>
+
+list = [ (repeat <expr>) ]
+
+---
+
+Future additions that would be useful to have, but are not
+currently planned.
+
+Failure can occur at any point during the parse phase (and even the
+lex phase). To handle this gracefully, support needs to be baked in
+for certain tokens or nodes not existing. Stubs for each can be used
+in their stead, while bubbling up errors for diagnostics.
+
+For example, given the text:
+
+```
+a =
+b = 42
+```
+
+We should construct the following AST:
+
+```
+Root
+	Attrs
+		0
+			name a
+			value MissingNode
+		1
+			name b
+			value Number 42
+```
+
+Known possible invalid inputs:
+
+```
+// missing eq and value
+a
+
+// missing value
+a =
+
+// missing closing bracket or brace
+a = [
+a = {
+
+// missing closing block comment
+/*
+
+// invalid keyword
+a = b
+
+// invalid characters in name
+$ = true
+
+// unexpected input
+a = 'asdf'
+a = 1 / 2
+1 = true
+```

@@ -1,0 +1,34 @@
+{
+	"name": "@dotbox/compiler",
+	"version": "1.0.0",
+	"description": "A library for compiling DotBox files.",
+	"main": "dist/index.cjs.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"clean": "rimraf ./dist",
+		"build": "npm run build:lib && npm run build:types",
+		"build:lib": "vite build",
+		"build:types": "tsc -p . --emitDeclarationOnly",
+		"test": "vitest"
+	},
+	"keywords": [
+		"box",
+		"config",
+		"language",
+		"json",
+		"compiler"
+	],
+	"author": "Jake Hamilton <jake.hamilton@hey.com>",
+	"license": "Apache-2.0",
+	"devDependencies": {
+		"@types/lodash": "^4.14.182",
+		"@types/node": "^17.0.25",
+		"builtin-modules": "^3.2.0",
+		"lodash": "^4.17.21",
+		"rimraf": "^3.0.2",
+		"typescript": "^4.6.3",
+		"vite": "^2.9.5",
+		"vite-plugin-commonjs-externals": "^0.1.1",
+		"vitest": "^0.9.3"
+	}
+}

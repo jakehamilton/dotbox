@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"lib": ["es2015", "ESNext"],
+		"types": ["vite/client"],
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"paths": {},
+		"declaration": true
+	},
+	"include": ["./src/**/*"],
+	"exclude": ["./src/**/*.spec.*", "./src/**/__tests__/*"]
+}

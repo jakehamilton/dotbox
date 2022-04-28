@@ -1,0 +1,16 @@
+x = 4 // yep
+// This is a comment on the root
+
+/* This is a comment above an attr */
+my_key = "my string value"
+
+my_attrs = {
+	my_list = [
+		"yes"
+		1
+		0xFFFFFF
+		true
+		/* asdf */
+	]
+	// asdf
+}

@@ -1,0 +1,40 @@
+y // asdf
+	= 0b0000_1111
+x /* asdf */ = 0xdeadbeef
+z = 0o1_234_567
+/* simple example here */
+//This is a comment on the root
+
+/*This is a comment above an attr*/
+my_key = "my string value"
+my_other_key /* 1234 */
+	=
+	"
+	| asdf
+	| asdf2
+	"
+
+x = 4 // post expr comment
+
+
+y = 2 /* post expr block comment */
+z = 0 /*
+post expr block
+on multiple lines */
+my_attrs = {
+	my_list = [
+		"yes"
+		/* test */ 1
+		0xFFFFFF
+		{ x /* hi */ = 1 }
+		true
+
+		/* asdf */
+	]
+
+	// asdf
+}
+enabled? = true
+"totally true" = true
+"totally
+not true" = false

@@ -1,0 +1,27 @@
+// asdf
+/* asdf
+	other asdf
+
+	/* nested asdf */
+*/
+"some string"
+"
+	some other string
+	with whitespace preserved
+"
+"
+| another
+| string without whitespace preserved
+"
+1_234
+3.14_15_2
+0b0000_1111
+0o1_234_567
+0xDEAD_BEEF
+true
+false
+some_ident?
+{
+	x = "hello, world!"
+	y = [ /* hello */ "works" ]
+}
