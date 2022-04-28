@@ -96,16 +96,23 @@ export class Compiler {
 	}
 
 	generateNumber(number: NumberNode): number {
+		let result;
 		switch (number.kind) {
 			default:
 			case NumberNodeKind.Decimal:
-				return Number(number.value);
+				result = Number(number.value);
 			case NumberNodeKind.Binary:
-				return parseInt(number.value, 2);
+				result = parseInt(number.value, 2);
 			case NumberNodeKind.Octal:
-				return parseInt(number.value, 8);
+				result = parseInt(number.value, 8);
 			case NumberNodeKind.Hex:
-				return parseInt(number.value, 16);
+				result = parseInt(number.value, 16);
+		}
+
+		if (number.isNegative) {
+			return result * -1;
+		} else {
+			return result;
 		}
 	}
 

@@ -1,0 +1,34 @@
+{
+	"name": "dotbox",
+	"displayName": "DotBox",
+	"description": "DotBox language support",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.66.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "dotbox",
+				"aliases": [
+					"DotBox",
+					"dotbox"
+				],
+				"extensions": [
+					".box"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "dotbox",
+				"scopeName": "source.box",
+				"path": "./syntaxes/dotbox.tmLanguage.json"
+			}
+		]
+	}
+}

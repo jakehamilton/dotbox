@@ -70,6 +70,7 @@ export interface NumberNode extends NodeBase {
 	kind: NumberNodeKind;
 	value: string;
 	raw: string;
+	isNegative: boolean;
 }
 
 export interface StringNode extends NodeBase {

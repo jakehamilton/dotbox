@@ -1,0 +1,226 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "DotBox",
+	"fileTypes": ["box", "dotbox"],
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#attr"
+		}
+	],
+	"repository": {
+		"value": {
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#string"
+				},
+				{
+					"include": "#list"
+				},
+				{
+					"include": "#bool"
+				},
+				{
+					"include": "#attrs"
+				}
+			]
+		},
+		"list": {
+			"name": "meta.structure.array.box",
+			"begin": "\\[",
+			"end": "\\]",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.array.begin.box"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.array.end.box"
+				}
+			},
+			"patterns": [{ "include": "#value" }]
+		},
+		"attrs": {
+			"name": "meta.structure.dictionary.box",
+			"begin": "\\{",
+			"end": "\\}",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.dictionary.begin.box"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.dictionary.end.box"
+				}
+			},
+			"patterns": [{ "include": "#comments" }, { "include": "#attr" }]
+		},
+		"attr": {
+			"patterns": [
+				{ "include": "#attrname" },
+				{ "include": "#comments" },
+				{
+					"name": "meta.structure.dictionary.value.box",
+					"begin": "=",
+					"end": "(?=(?:\\s*(?:(?:\\w+)|(?:\".+\"))\\s*(?:(?:/\\*.+\\*/)|(?://.+\\n))*\\s*\\=)|[\\}\\]])",
+					"patterns": [
+						{
+							"include": "#value"
+						}
+					]
+				}
+			]
+		},
+		"attrname": {
+			"name": "meta.attrname.box",
+			"patterns": [
+				{
+					"name": "string.quoted.double.box",
+					"begin": "\"",
+					"end": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.support.type.property-name.begin.box"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.support.type.property-name.end.box"
+						}
+					},
+					"patterns": [{ "include": "#stringcontent" }]
+				},
+				{
+					"name": "support.type.property-name.box",
+					"match": "[a-zA-Z][a-zA-Z0-9_]*"
+				}
+			]
+		},
+		"string": {
+			"name": "string.quoted.double.box",
+			"begin": "\"",
+			"end": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.box"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.box"
+				}
+			},
+			"patterns": [{ "include": "#stringcontent" }]
+		},
+		"stringcontent": {
+			"patterns": [
+				{
+					"match": "(?x)                # turn on extended mode\n  \\\\                # a literal backslash\n  (?:               # ...followed by...\n    [\"\\\\/bfnrt]     # one of these characters\n    |               # ...or...\n    u               # a u\n    [0-9a-fA-F]{4}) # and four hex digits",
+					"name": "constant.character.escape.box"
+				},
+				{
+					"match": "^\\s*(\\|)",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.string.indent.box"
+						}
+					}
+				},
+				{
+					"match": "\\\\.",
+					"name": "invalid.illegal.unrecognized-string-escape.box"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.hex.box",
+					"match": "\\b(?<!\\$)0(x|X)[0-9a-fA-F][0-9a-fA-F_]*\\b(?!\\$)"
+				},
+				{
+					"name": "constant.numeric.binary.box",
+					"match": "\\b(?<!\\$)0(b|B)[01][01_]*\\b(?!\\$)"
+				},
+				{
+					"name": "constant.numeric.octal.box",
+					"match": "\\b(?<!\\$)0(o|O)?[0-7][0-7_]*\\b(?!\\$)"
+				},
+				{
+					"match": "\\b(?<!\\$)([0-9][0-9_]*)(?:(\\.)([0-9][0-9_]*))?\\b(?!\\$)",
+					"captures": {
+						"0": {
+							"name": "constant.numeric.decimal.box"
+						},
+						"2": {
+							"name": "meta.delimiter.decimal.period.box"
+						}
+					}
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.box",
+					"match": "(//).*$\\n?",
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.comment.box"
+						}
+					}
+				},
+				{
+					"name": "comment.block.box",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.block.start.box"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.block.end.box"
+						}
+					},
+					"patterns": [{ "include": "#comments" }]
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.dotbox",
+					"match": "\\b(if|while|for|return)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.dotbox",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dotbox",
+					"match": "\\\\."
+				}
+			]
+		},
+		"bool": {
+			"name": "constant.language.box",
+			"match": "\\b(true|false)\\b"
+		}
+	},
+	"scopeName": "source.box"
+}

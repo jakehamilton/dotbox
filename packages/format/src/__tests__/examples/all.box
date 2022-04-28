@@ -1,3 +1,6 @@
+z = 0 /* /*
+post expr block
+on multiple lines */
 y // asdf
 	= 0b0000_1111
 x /* asdf */ = 0xdeadbeef
@@ -14,14 +17,15 @@ my_other_key /* 1234 */
 	| asdf2
 	"
 
-x = 4 // post expr comment
+x = -4 // post expr comment
 
 
 y = 2 /* post expr block comment */
-z = 0 /*
-post expr block
-on multiple lines */
+
 my_attrs = {
+	/*
+		What will this do?
+	*/
 	my_list = [
 		"yes"
 		/* test */ 1
@@ -38,3 +42,5 @@ enabled? = true
 "totally true" = true
 "totally
 not true" = false
+*/
+x = true

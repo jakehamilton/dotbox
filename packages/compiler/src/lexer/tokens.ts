@@ -85,6 +85,7 @@ export interface NumberToken extends TokenBase {
 	kind: NumberTokenKind;
 	value: string;
 	raw: string;
+	isNegative: boolean;
 }
 
 export interface StringToken extends TokenBase {

@@ -80,9 +80,13 @@ export class Formatter {
 					break;
 				case NodeType.Comment:
 					this.formatComment(coder, node, scope);
+					console.log({
+						after: coder.code,
+					});
 					break;
 			}
 
+			console.log(node, next);
 			if (next && next.start.line - node.end.line > 1) {
 				coder.line("");
 			}
@@ -106,25 +110,26 @@ export class Formatter {
 		if (node.kind === CommentNodeKind.SingleLine) {
 			coder.line(`// ${node.value}`);
 		} else {
+			const lines = node.value.map((line) => line.replace(/^\t*/, ""));
 			if (isInline) {
-				if (node.value.length === 1) {
-					coder.code += `/* ${node.value[0]} */`;
+				if (lines.length === 1) {
+					coder.code += `/* ${lines[0]} */`;
 				} else {
-					coder.line(`/* ${node.value[0]}`);
+					coder.line(`/* ${lines[0]}`);
 					coder.indent();
-					for (const line of node.value.slice(1)) {
+					for (const line of lines.slice(1)) {
 						coder.line(`${line}`);
 					}
 					coder.dedent();
 					coder.line(`*/`);
 				}
 			} else {
-				if (node.value.length === 1 && node.value[0].length < 120) {
-					coder.line(`/* ${node.value[0]} */`);
+				if (lines.length === 1 && lines[0].length < 120) {
+					coder.line(`/* ${lines[0]} */`);
 				} else {
 					coder.line(`/*`);
 					coder.indent();
-					for (const line of node.value) {
+					for (const line of lines) {
 						coder.line(line);
 					}
 					coder.dedent();
@@ -155,8 +160,6 @@ export class Formatter {
 			this.formatComment(postNameCommentsCoder, comment, scope);
 		}
 
-		this.formatExpr(exprCoder, attr.expr as ExprNode, subScope);
-
 		switch (attr.name.type) {
 			case NodeType.Ident:
 				this.formatIdent(nameCoder, attr.name, subScope);
@@ -174,6 +177,12 @@ export class Formatter {
 				(attr.postNameComments[0].kind === CommentNodeKind.SingleLine ||
 					attr.postNameComments[0].value.length > 1 ||
 					attr.postNameComments[0].value[0].length > 40));
+
+		if (isIndented && !isExprOnNewLine) {
+			exprCoder.code += "= ";
+		}
+
+		this.formatExpr(exprCoder, attr.expr as ExprNode, subScope);
 
 		if (isIndented) {
 			for (const line of nameCoder.code.trimEnd().split("\n")) {
@@ -305,18 +314,19 @@ export class Formatter {
 	}
 
 	formatNumber(coder: Coder, number: NumberNode, scope: Array<NodeType>) {
+		const sign = number.isNegative ? "-" : "";
 		switch (number.kind) {
 			case NumberNodeKind.Decimal:
-				coder.code += number.raw;
+				coder.line(`${sign}${number.raw}`);
 				break;
 			case NumberNodeKind.Binary:
-				coder.code += `0b${number.raw}`;
+				coder.line(`${sign}0b${number.raw}`);
 				break;
 			case NumberNodeKind.Octal:
-				coder.code += `0o${number.raw}`;
+				coder.line(`${sign}0o${number.raw}`);
 				break;
 			case NumberNodeKind.Hex:
-				coder.code += `0x${number.raw}`;
+				coder.line(`${sign}0x${number.raw}`);
 				break;
 		}
 	}

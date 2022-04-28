@@ -168,7 +168,7 @@ export default class Lexer {
 			return this.lexComment();
 		} else if (char === '"') {
 			return this.lexString();
-		} else if (char.match(/\d/)) {
+		} else if (char.match(/[\-\d]/)) {
 			return this.lexNumber();
 		} else if (char === "{") {
 			const start = this.loc();
@@ -305,11 +305,6 @@ export default class Lexer {
 
 			while (!this.eof() && this.char() !== "\n") {
 				text += this.eat();
-			}
-
-			// Skip final new line
-			if (!this.eof()) {
-				this.eat();
 			}
 
 			return {
@@ -493,8 +488,32 @@ export default class Lexer {
 		};
 	}
 
-	lexNumber(): NumberToken {
+	lexNumber(): NumberToken | MissingToken {
 		const start = this.loc();
+
+		let isNegative = false;
+
+		if (this.char() === "-") {
+			isNegative = true;
+			this.eat();
+
+			if (!this.char().match(/[0-9]/)) {
+				const end = this.loc();
+
+				return {
+					type: TokenType.Missing,
+					expected: TokenType.Number,
+					actual: {
+						type: CharTokenType,
+						value: this.char(),
+						start,
+						end,
+					},
+					start,
+					end,
+				};
+			}
+		}
 
 		const firstChar = this.char();
 		const secondChar = this.char(1);
@@ -523,6 +542,7 @@ export default class Lexer {
 					kind: NumberTokenKind.Decimal,
 					value: "0",
 					raw: "0",
+					isNegative,
 					start,
 					end: this.loc(),
 				};
@@ -544,6 +564,7 @@ export default class Lexer {
 							kind: NumberTokenKind.Binary,
 							value: "0",
 							raw: "0",
+							isNegative,
 							start,
 							end: this.loc(),
 						};
@@ -582,6 +603,7 @@ export default class Lexer {
 							kind: NumberTokenKind.Octal,
 							value: "0",
 							raw: "0",
+							isNegative,
 							start,
 							end: this.loc(),
 						};
@@ -620,6 +642,7 @@ export default class Lexer {
 							kind: NumberTokenKind.Hex,
 							value: "0",
 							raw: "0",
+							isNegative,
 							start,
 							end: this.loc(),
 						};
@@ -693,6 +716,7 @@ export default class Lexer {
 			kind,
 			value,
 			raw,
+			isNegative,
 			start,
 			end: this.loc(),
 		};

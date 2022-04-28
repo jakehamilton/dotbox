@@ -262,7 +262,7 @@ export default class Parser {
 			preExprComments,
 			postExprComment,
 			start: value.start,
-			end: value.end,
+			end: postExprComment ? postExprComment.end : value.end,
 		};
 	}
 
@@ -360,6 +360,7 @@ export default class Parser {
 			kind: token.kind,
 			value: token.value,
 			raw: token.raw,
+			isNegative: token.isNegative,
 			start: token.start,
 			end: token.end,
 		} as unknown as NumberNode;

@@ -1,0 +1,35 @@
+// Say hello to DotBox
+key = "value"
+
+multi_line_string =
+	"
+Hey there!
+How's it going?
+	"
+multiline_string_without_indent =
+	"
+	| Hey there!
+	| How's it going?
+	"
+
+totally_true = true
+definitely_false = false
+
+"any text for your key" = "something"
+"
+| even multiline
+| text can be used
+" = "something"
+
+set = {
+	decimal = 1_000_000.000_000
+	binary = 0b0000_0001
+	octal = 0o0123_4567
+	hex = 0xdead_beef // Capital letters can be used too!
+}
+
+list = [
+	1
+	true
+	"three"
+]
