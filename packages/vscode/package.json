@@ -1,8 +1,11 @@
 {
-	"name": "dotbox",
+	"name": "dotbox-vscode",
 	"displayName": "DotBox",
 	"description": "DotBox language support",
 	"version": "0.0.1",
+	"titan": {
+		"publish": false
+	},
 	"engines": {
 		"vscode": "^1.66.0"
 	},
