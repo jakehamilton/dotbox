@@ -21,6 +21,10 @@ import {
 } from "@dotbox/compiler";
 import Coder from "@littlethings/coder";
 
+const sanitizeString = (input: string) => {
+	return input.replaceAll('"', '\\"');
+};
+
 export class Formatter {
 	input: string;
 	output: string;
@@ -249,11 +253,11 @@ export class Formatter {
 
 	formatString(coder: Coder, string: StringNode, scope: Array<NodeType>) {
 		if (string.value.length === 1) {
-			coder.line(`"${string.value[0]}"`);
+			coder.line(`"${sanitizeString(string.value[0])}"`);
 		} else {
 			coder.line(`"`);
 			for (const line of string.value) {
-				coder.line(`| ${line}`);
+				coder.line(`| ${sanitizeString(line)}`);
 			}
 			coder.line(`"`);
 		}

@@ -374,6 +374,10 @@ export default class Lexer {
 				);
 			}
 
+			if (lines.length > 1 && lines[0] === "") {
+				lines = lines.slice(1);
+			}
+
 			// Skip closing star and slash
 			if (!this.eof()) {
 				this.eat();
@@ -438,8 +442,13 @@ export default class Lexer {
 			} else if (this.char() === "\\") {
 				// Skip the backslash
 				this.eat();
-				// Append whatever comes after (if it exists)
-				if (!this.eof()) {
+
+				if (this.char() === "n") {
+					lines.push(line);
+					line = "";
+					this.eat();
+				} else if (!this.eof()) {
+					// Append whatever comes after (if it exists)
 					line += this.eat();
 				}
 			} else {
@@ -465,7 +474,7 @@ export default class Lexer {
 			lines = lines.slice(0, lines.length - 1);
 		}
 
-		if (isIndentedMultiLine && lines.length > 0 && lines[0] === "") {
+		if (lines.length > 0 && lines[0] === "") {
 			lines = lines.slice(1);
 		}
 

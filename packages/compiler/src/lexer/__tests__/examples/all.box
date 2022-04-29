@@ -1,27 +1,44 @@
-// asdf
-/* asdf
-	other asdf
+y // asdf
+	= 0b0000_1111
+x /* asdf */ = 0xdeadbeef
+z = 0o1_234_567
+/* simple example here */
+//This is a comment on the root
 
-	/* nested asdf */
-*/
-"some string"
-"
-	some other string
-	with whitespace preserved
-"
-"
-| another
-| string without whitespace preserved
-"
--1_234
-3.14_15_2
-0b0000_1111
-0o1_234_567
-0xDEAD_BEEF
-true
-false
-some_ident?
-{
-	x = "hello, world!"
-	y = [ /* hello */ "works" ]
+/*This is a comment above an attr*/
+my_key = "my\n string \" value"
+my_other_key /* 1234 */
+	=
+	"
+	| asdf
+	| asdf2
+	"
+
+x = -4 // post expr comment
+
+z = 0 /*
+post expr block
+on multiple lines */
+
+y = 2 /* post expr block comment */
+
+my_attrs = {
+	/*
+		What will this do?
+	*/
+	my_list = [
+		"yes"
+		/* test */ 1
+		0xFFFFFF
+		{ x /* hi */ = 1 }
+		true
+
+		/* asdf */
+	]
+
+	// asdf
 }
+enabled? = true
+"totally true" = true
+"totally
+not true" = false

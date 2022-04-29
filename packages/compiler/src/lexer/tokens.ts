@@ -38,20 +38,52 @@ export interface CharToken extends TokenBase {
 	value: string;
 }
 
+export const isCharToken = (value: any): value is CharToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === CharTokenType
+	);
+};
+
 export interface MissingToken extends TokenBase {
 	type: TokenType.Missing;
 	expected: TokenType | AnyToken;
 	actual: Exclude<Token, MissingToken> | CharToken;
 }
 
+export const isMissingToken = (value: any): value is MissingToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.Missing
+	);
+};
+
 export interface EOFToken extends TokenBase {
 	type: TokenType.EOF;
 }
+
+export const isEOFToken = (value: any): value is EOFToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.EOF
+	);
+};
 
 export interface WhitespaceToken extends TokenBase {
 	type: TokenType.Whitespace;
 	value: string;
 }
+
+export const isWhitespaceToken = (value: any): value is WhitespaceToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.Whitespace
+	);
+};
 
 export enum CommentTokenKind {
 	SingleLine = "SingleLine",
@@ -69,10 +101,26 @@ export interface MultiLineCommentToken extends TokenBase {
 }
 export type CommentToken = SingleLineCommentToken | MultiLineCommentToken;
 
+export const isCommentToken = (value: any): value is CommentToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.Comment
+	);
+};
+
 export interface IdentToken extends TokenBase {
 	type: TokenType.Ident;
 	value: string;
 }
+
+export const isIdentToken = (value: any): value is IdentToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.Ident
+	);
+};
 
 export enum NumberTokenKind {
 	Decimal = "Decimal",
@@ -88,32 +136,99 @@ export interface NumberToken extends TokenBase {
 	isNegative: boolean;
 }
 
+export const isNumberToken = (value: any): value is NumberToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.Number
+	);
+};
+
 export interface StringToken extends TokenBase {
 	type: TokenType.String;
 	value: Array<string>;
 }
+
+export const isStringToken = (value: any): value is StringToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.String
+	);
+};
 
 export interface BoolToken extends TokenBase {
 	type: TokenType.Bool;
 	value: string;
 }
 
+export const isBoolToken = (value: any): value is BoolToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.Bool
+	);
+};
+
 export interface OpenBraceToken extends TokenBase {
 	type: TokenType.OpenBrace;
 }
+
+export const isOpenBraceToken = (value: any): value is OpenBraceToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.OpenBrace
+	);
+};
+
 export interface CloseBraceToken extends TokenBase {
 	type: TokenType.CloseBrace;
 }
+
+export const isCloseBraceToken = (value: any): value is CloseBraceToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.CloseBrace
+	);
+};
+
 export interface OpenBracketToken extends TokenBase {
 	type: TokenType.OpenBracket;
 }
+
+export const isOpenBracketToken = (value: any): value is OpenBracketToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.OpenBracket
+	);
+};
+
 export interface CloseBracketToken extends TokenBase {
 	type: TokenType.CloseBracket;
 }
 
+export const isCloseBracketToken = (value: any): value is CloseBracketToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.CloseBracket
+	);
+};
+
 export interface EqToken extends TokenBase {
 	type: TokenType.Eq;
 }
+
+export const isEqToken = (value: any): value is EqToken => {
+	return (
+		value !== null &&
+		typeof value === "object" &&
+		value.type === TokenType.Eq
+	);
+};
 
 export type Token =
 	| EOFToken

@@ -1,18 +1,43 @@
-x = 4 // yep
-// This is a comment on the root
+y // asdf
+	= 0b0000_1111
+x /* asdf */ = 0xdeadbeef
+z = 0o1_234_567
+/* simple example here */
+//This is a comment on the root
 
-/* This is a comment above an attr */
-my_key = "my string value"
+/*This is a comment above an attr*/
+my_key = "my\n string \" value"
+my_other_key /* 1234 */ =
+	"
+	| asdf
+	| asdf2
+	"
 
-my_number = -1234
+x = -4 // post expr comment
+
+z = 0 /*
+post expr block
+on multiple lines */
+
+y = 2 /* post expr block comment */
 
 my_attrs = {
+	/*
+		What will this do?
+	*/
 	my_list = [
 		"yes"
-		1
+		/* test */ 1
 		0xFFFFFF
+		{ x /* hi */ = 1 }
 		true
+
 		/* asdf */
 	]
+
 	// asdf
 }
+enabled? = true
+"totally true" = true
+"totally
+not true" = false
