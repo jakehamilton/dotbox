@@ -9,9 +9,10 @@
     "bootstrap": "titan install",
     "bootstrap:changed": "titan install --changed --with-deps",
     "build": "titan run build",
-    "build:changed": "titan run build --changed --with-deps",
+    "build:changed": "titan run build --ordered --changed --with-deps",
     "test": "titan run test",
     "test:changed": "titan run test --changed --with-deps",
+    "version": "titan version",
     "publish": "titan publish"
   },
   "titan": {
