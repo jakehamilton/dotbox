@@ -1,6 +1,6 @@
 {
     "name": "@dotbox/compiler",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A library for compiling DotBox files.",
     "main": "dist/index.cjs.js",
     "types": "dist/index.d.ts",
