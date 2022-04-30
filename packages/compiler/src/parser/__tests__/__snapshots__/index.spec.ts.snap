@@ -1,0 +1,1299 @@
+// Vitest Snapshot v1
+
+exports[`Parser > should work 1`] = `
+{
+  "end": {
+    "col": 1,
+    "line": 44,
+  },
+  "nodes": [
+    {
+      "end": {
+        "col": 15,
+        "line": 2,
+      },
+      "expr": {
+        "end": {
+          "col": 15,
+          "line": 2,
+        },
+        "postExprComment": undefined,
+        "preExprComments": [],
+        "start": {
+          "col": 4,
+          "line": 2,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 15,
+            "line": 2,
+          },
+          "start": {
+            "col": 4,
+            "line": 2,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 15,
+              "line": 2,
+            },
+            "isNegative": false,
+            "kind": "Binary",
+            "raw": "0000_1111",
+            "start": {
+              "col": 4,
+              "line": 2,
+            },
+            "type": "Number",
+            "value": "00001111",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 2,
+          "line": 1,
+        },
+        "start": {
+          "col": 1,
+          "line": 1,
+        },
+        "type": "Ident",
+        "value": "y",
+      },
+      "postNameComments": [
+        {
+          "end": {
+            "col": 10,
+            "line": 1,
+          },
+          "kind": "SingleLine",
+          "start": {
+            "col": 3,
+            "line": 1,
+          },
+          "type": "Comment",
+          "value": "asdf",
+        },
+      ],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 1,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 26,
+        "line": 3,
+      },
+      "expr": {
+        "end": {
+          "col": 26,
+          "line": 3,
+        },
+        "postExprComment": undefined,
+        "preExprComments": [],
+        "start": {
+          "col": 16,
+          "line": 3,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 26,
+            "line": 3,
+          },
+          "start": {
+            "col": 16,
+            "line": 3,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 26,
+              "line": 3,
+            },
+            "isNegative": false,
+            "kind": "Hex",
+            "raw": "deadbeef",
+            "start": {
+              "col": 16,
+              "line": 3,
+            },
+            "type": "Number",
+            "value": "deadbeef",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 2,
+          "line": 3,
+        },
+        "start": {
+          "col": 1,
+          "line": 3,
+        },
+        "type": "Ident",
+        "value": "x",
+      },
+      "postNameComments": [
+        {
+          "end": {
+            "col": 13,
+            "line": 3,
+          },
+          "kind": "MultiLine",
+          "start": {
+            "col": 3,
+            "line": 3,
+          },
+          "type": "Comment",
+          "value": [
+            "asdf",
+          ],
+        },
+      ],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 3,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 16,
+        "line": 4,
+      },
+      "expr": {
+        "end": {
+          "col": 16,
+          "line": 4,
+        },
+        "postExprComment": undefined,
+        "preExprComments": [],
+        "start": {
+          "col": 5,
+          "line": 4,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 16,
+            "line": 4,
+          },
+          "start": {
+            "col": 5,
+            "line": 4,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 16,
+              "line": 4,
+            },
+            "isNegative": false,
+            "kind": "Octal",
+            "raw": "1_234_567",
+            "start": {
+              "col": 5,
+              "line": 4,
+            },
+            "type": "Number",
+            "value": "1234567",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 2,
+          "line": 4,
+        },
+        "start": {
+          "col": 1,
+          "line": 4,
+        },
+        "type": "Ident",
+        "value": "z",
+      },
+      "postNameComments": [],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 4,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 26,
+        "line": 5,
+      },
+      "kind": "MultiLine",
+      "start": {
+        "col": 1,
+        "line": 5,
+      },
+      "type": "Comment",
+      "value": [
+        "simple example here",
+      ],
+    },
+    {
+      "end": {
+        "col": 32,
+        "line": 6,
+      },
+      "kind": "SingleLine",
+      "start": {
+        "col": 1,
+        "line": 6,
+      },
+      "type": "Comment",
+      "value": "This is a comment on the root",
+    },
+    {
+      "end": {
+        "col": 36,
+        "line": 8,
+      },
+      "kind": "MultiLine",
+      "start": {
+        "col": 1,
+        "line": 8,
+      },
+      "type": "Comment",
+      "value": [
+        "This is a comment above an attr",
+      ],
+    },
+    {
+      "end": {
+        "col": 32,
+        "line": 9,
+      },
+      "expr": {
+        "end": {
+          "col": 32,
+          "line": 9,
+        },
+        "postExprComment": undefined,
+        "preExprComments": [],
+        "start": {
+          "col": 10,
+          "line": 9,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 32,
+            "line": 9,
+          },
+          "start": {
+            "col": 10,
+            "line": 9,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 32,
+              "line": 9,
+            },
+            "start": {
+              "col": 10,
+              "line": 9,
+            },
+            "type": "String",
+            "value": [
+              "my",
+              " string \\" value",
+            ],
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 7,
+          "line": 9,
+        },
+        "start": {
+          "col": 1,
+          "line": 9,
+        },
+        "type": "Ident",
+        "value": "my_key",
+      },
+      "postNameComments": [],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 9,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 3,
+        "line": 14,
+      },
+      "expr": {
+        "end": {
+          "col": 3,
+          "line": 14,
+        },
+        "postExprComment": undefined,
+        "preExprComments": [],
+        "start": {
+          "col": 2,
+          "line": 11,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 3,
+            "line": 14,
+          },
+          "start": {
+            "col": 2,
+            "line": 11,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 3,
+              "line": 14,
+            },
+            "start": {
+              "col": 2,
+              "line": 11,
+            },
+            "type": "String",
+            "value": [
+              "asdf",
+              "asdf2",
+            ],
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 13,
+          "line": 10,
+        },
+        "start": {
+          "col": 1,
+          "line": 10,
+        },
+        "type": "Ident",
+        "value": "my_other_key",
+      },
+      "postNameComments": [
+        {
+          "end": {
+            "col": 24,
+            "line": 10,
+          },
+          "kind": "MultiLine",
+          "start": {
+            "col": 14,
+            "line": 10,
+          },
+          "type": "Comment",
+          "value": [
+            "1234",
+          ],
+        },
+      ],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 10,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 28,
+        "line": 16,
+      },
+      "expr": {
+        "end": {
+          "col": 28,
+          "line": 16,
+        },
+        "postExprComment": {
+          "end": {
+            "col": 28,
+            "line": 16,
+          },
+          "kind": "SingleLine",
+          "start": {
+            "col": 8,
+            "line": 16,
+          },
+          "type": "Comment",
+          "value": "post expr comment",
+        },
+        "preExprComments": [],
+        "start": {
+          "col": 5,
+          "line": 16,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 7,
+            "line": 16,
+          },
+          "start": {
+            "col": 5,
+            "line": 16,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 7,
+              "line": 16,
+            },
+            "isNegative": true,
+            "kind": "Decimal",
+            "raw": "4",
+            "start": {
+              "col": 5,
+              "line": 16,
+            },
+            "type": "Number",
+            "value": "4",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 2,
+          "line": 16,
+        },
+        "start": {
+          "col": 1,
+          "line": 16,
+        },
+        "type": "Ident",
+        "value": "x",
+      },
+      "postNameComments": [],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 16,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 21,
+        "line": 20,
+      },
+      "expr": {
+        "end": {
+          "col": 21,
+          "line": 20,
+        },
+        "postExprComment": {
+          "end": {
+            "col": 21,
+            "line": 20,
+          },
+          "kind": "MultiLine",
+          "start": {
+            "col": 7,
+            "line": 18,
+          },
+          "type": "Comment",
+          "value": [
+            "post expr block",
+            "on multiple lines",
+          ],
+        },
+        "preExprComments": [],
+        "start": {
+          "col": 5,
+          "line": 18,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 6,
+            "line": 18,
+          },
+          "start": {
+            "col": 5,
+            "line": 18,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 6,
+              "line": 18,
+            },
+            "isNegative": false,
+            "kind": "Decimal",
+            "raw": "0",
+            "start": {
+              "col": 5,
+              "line": 18,
+            },
+            "type": "Number",
+            "value": "0",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 2,
+          "line": 18,
+        },
+        "start": {
+          "col": 1,
+          "line": 18,
+        },
+        "type": "Ident",
+        "value": "z",
+      },
+      "postNameComments": [],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 18,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 36,
+        "line": 22,
+      },
+      "expr": {
+        "end": {
+          "col": 36,
+          "line": 22,
+        },
+        "postExprComment": {
+          "end": {
+            "col": 36,
+            "line": 22,
+          },
+          "kind": "MultiLine",
+          "start": {
+            "col": 7,
+            "line": 22,
+          },
+          "type": "Comment",
+          "value": [
+            "post expr block comment",
+          ],
+        },
+        "preExprComments": [],
+        "start": {
+          "col": 5,
+          "line": 22,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 6,
+            "line": 22,
+          },
+          "start": {
+            "col": 5,
+            "line": 22,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 6,
+              "line": 22,
+            },
+            "isNegative": false,
+            "kind": "Decimal",
+            "raw": "2",
+            "start": {
+              "col": 5,
+              "line": 22,
+            },
+            "type": "Number",
+            "value": "2",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 2,
+          "line": 22,
+        },
+        "start": {
+          "col": 1,
+          "line": 22,
+        },
+        "type": "Ident",
+        "value": "y",
+      },
+      "postNameComments": [],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 22,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 2,
+        "line": 39,
+      },
+      "expr": {
+        "end": {
+          "col": 2,
+          "line": 39,
+        },
+        "postExprComment": undefined,
+        "preExprComments": [],
+        "start": {
+          "col": 12,
+          "line": 24,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 2,
+            "line": 39,
+          },
+          "start": {
+            "col": 12,
+            "line": 24,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 2,
+              "line": 39,
+            },
+            "nodes": [
+              {
+                "end": {
+                  "col": 4,
+                  "line": 27,
+                },
+                "kind": "MultiLine",
+                "start": {
+                  "col": 2,
+                  "line": 25,
+                },
+                "type": "Comment",
+                "value": [
+                  "		What will this do?",
+                  "	",
+                ],
+              },
+              {
+                "end": {
+                  "col": 3,
+                  "line": 36,
+                },
+                "expr": {
+                  "end": {
+                    "col": 3,
+                    "line": 36,
+                  },
+                  "postExprComment": undefined,
+                  "preExprComments": [],
+                  "start": {
+                    "col": 12,
+                    "line": 28,
+                  },
+                  "type": "Expr",
+                  "value": {
+                    "end": {
+                      "col": 3,
+                      "line": 36,
+                    },
+                    "start": {
+                      "col": 12,
+                      "line": 28,
+                    },
+                    "type": "SubExpr",
+                    "value": {
+                      "end": {
+                        "col": 3,
+                        "line": 36,
+                      },
+                      "start": {
+                        "col": 12,
+                        "line": 28,
+                      },
+                      "type": "List",
+                      "value": [
+                        {
+                          "end": {
+                            "col": 8,
+                            "line": 29,
+                          },
+                          "postExprComment": undefined,
+                          "preExprComments": [],
+                          "start": {
+                            "col": 3,
+                            "line": 29,
+                          },
+                          "type": "Expr",
+                          "value": {
+                            "end": {
+                              "col": 8,
+                              "line": 29,
+                            },
+                            "start": {
+                              "col": 3,
+                              "line": 29,
+                            },
+                            "type": "SubExpr",
+                            "value": {
+                              "end": {
+                                "col": 8,
+                                "line": 29,
+                              },
+                              "start": {
+                                "col": 3,
+                                "line": 29,
+                              },
+                              "type": "String",
+                              "value": [
+                                "yes",
+                              ],
+                            },
+                          },
+                        },
+                        {
+                          "end": {
+                            "col": 13,
+                            "line": 30,
+                          },
+                          "kind": "MultiLine",
+                          "start": {
+                            "col": 3,
+                            "line": 30,
+                          },
+                          "type": "Comment",
+                          "value": [
+                            "test",
+                          ],
+                        },
+                        {
+                          "end": {
+                            "col": 15,
+                            "line": 30,
+                          },
+                          "postExprComment": undefined,
+                          "preExprComments": [],
+                          "start": {
+                            "col": 14,
+                            "line": 30,
+                          },
+                          "type": "Expr",
+                          "value": {
+                            "end": {
+                              "col": 15,
+                              "line": 30,
+                            },
+                            "start": {
+                              "col": 14,
+                              "line": 30,
+                            },
+                            "type": "SubExpr",
+                            "value": {
+                              "end": {
+                                "col": 15,
+                                "line": 30,
+                              },
+                              "isNegative": false,
+                              "kind": "Decimal",
+                              "raw": "1",
+                              "start": {
+                                "col": 14,
+                                "line": 30,
+                              },
+                              "type": "Number",
+                              "value": "1",
+                            },
+                          },
+                        },
+                        {
+                          "end": {
+                            "col": 11,
+                            "line": 31,
+                          },
+                          "postExprComment": undefined,
+                          "preExprComments": [],
+                          "start": {
+                            "col": 3,
+                            "line": 31,
+                          },
+                          "type": "Expr",
+                          "value": {
+                            "end": {
+                              "col": 11,
+                              "line": 31,
+                            },
+                            "start": {
+                              "col": 3,
+                              "line": 31,
+                            },
+                            "type": "SubExpr",
+                            "value": {
+                              "end": {
+                                "col": 11,
+                                "line": 31,
+                              },
+                              "isNegative": false,
+                              "kind": "Hex",
+                              "raw": "FFFFFF",
+                              "start": {
+                                "col": 3,
+                                "line": 31,
+                              },
+                              "type": "Number",
+                              "value": "FFFFFF",
+                            },
+                          },
+                        },
+                        {
+                          "end": {
+                            "col": 21,
+                            "line": 32,
+                          },
+                          "postExprComment": undefined,
+                          "preExprComments": [],
+                          "start": {
+                            "col": 3,
+                            "line": 32,
+                          },
+                          "type": "Expr",
+                          "value": {
+                            "end": {
+                              "col": 21,
+                              "line": 32,
+                            },
+                            "start": {
+                              "col": 3,
+                              "line": 32,
+                            },
+                            "type": "SubExpr",
+                            "value": {
+                              "end": {
+                                "col": 21,
+                                "line": 32,
+                              },
+                              "nodes": [
+                                {
+                                  "end": {
+                                    "col": 19,
+                                    "line": 32,
+                                  },
+                                  "expr": {
+                                    "end": {
+                                      "col": 19,
+                                      "line": 32,
+                                    },
+                                    "postExprComment": undefined,
+                                    "preExprComments": [],
+                                    "start": {
+                                      "col": 18,
+                                      "line": 32,
+                                    },
+                                    "type": "Expr",
+                                    "value": {
+                                      "end": {
+                                        "col": 19,
+                                        "line": 32,
+                                      },
+                                      "start": {
+                                        "col": 18,
+                                        "line": 32,
+                                      },
+                                      "type": "SubExpr",
+                                      "value": {
+                                        "end": {
+                                          "col": 19,
+                                          "line": 32,
+                                        },
+                                        "isNegative": false,
+                                        "kind": "Decimal",
+                                        "raw": "1",
+                                        "start": {
+                                          "col": 18,
+                                          "line": 32,
+                                        },
+                                        "type": "Number",
+                                        "value": "1",
+                                      },
+                                    },
+                                  },
+                                  "name": {
+                                    "end": {
+                                      "col": 6,
+                                      "line": 32,
+                                    },
+                                    "start": {
+                                      "col": 5,
+                                      "line": 32,
+                                    },
+                                    "type": "Ident",
+                                    "value": "x",
+                                  },
+                                  "postNameComments": [
+                                    {
+                                      "end": {
+                                        "col": 15,
+                                        "line": 32,
+                                      },
+                                      "kind": "MultiLine",
+                                      "start": {
+                                        "col": 7,
+                                        "line": 32,
+                                      },
+                                      "type": "Comment",
+                                      "value": [
+                                        "hi",
+                                      ],
+                                    },
+                                  ],
+                                  "preNameComments": [],
+                                  "start": {
+                                    "col": 5,
+                                    "line": 32,
+                                  },
+                                  "type": "Attr",
+                                },
+                              ],
+                              "start": {
+                                "col": 3,
+                                "line": 32,
+                              },
+                              "type": "Attrs",
+                            },
+                          },
+                        },
+                        {
+                          "end": {
+                            "col": 7,
+                            "line": 33,
+                          },
+                          "postExprComment": undefined,
+                          "preExprComments": [],
+                          "start": {
+                            "col": 3,
+                            "line": 33,
+                          },
+                          "type": "Expr",
+                          "value": {
+                            "end": {
+                              "col": 7,
+                              "line": 33,
+                            },
+                            "start": {
+                              "col": 3,
+                              "line": 33,
+                            },
+                            "type": "SubExpr",
+                            "value": {
+                              "end": {
+                                "col": 7,
+                                "line": 33,
+                              },
+                              "start": {
+                                "col": 3,
+                                "line": 33,
+                              },
+                              "type": "Bool",
+                              "value": "true",
+                            },
+                          },
+                        },
+                        {
+                          "end": {
+                            "col": 13,
+                            "line": 35,
+                          },
+                          "kind": "MultiLine",
+                          "start": {
+                            "col": 3,
+                            "line": 35,
+                          },
+                          "type": "Comment",
+                          "value": [
+                            "asdf",
+                          ],
+                        },
+                      ],
+                    },
+                  },
+                },
+                "name": {
+                  "end": {
+                    "col": 9,
+                    "line": 28,
+                  },
+                  "start": {
+                    "col": 2,
+                    "line": 28,
+                  },
+                  "type": "Ident",
+                  "value": "my_list",
+                },
+                "postNameComments": [],
+                "preNameComments": [],
+                "start": {
+                  "col": 2,
+                  "line": 28,
+                },
+                "type": "Attr",
+              },
+              {
+                "end": {
+                  "col": 9,
+                  "line": 38,
+                },
+                "kind": "SingleLine",
+                "start": {
+                  "col": 2,
+                  "line": 38,
+                },
+                "type": "Comment",
+                "value": "asdf",
+              },
+            ],
+            "start": {
+              "col": 12,
+              "line": 24,
+            },
+            "type": "Attrs",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 9,
+          "line": 24,
+        },
+        "start": {
+          "col": 1,
+          "line": 24,
+        },
+        "type": "Ident",
+        "value": "my_attrs",
+      },
+      "postNameComments": [],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 24,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 16,
+        "line": 40,
+      },
+      "expr": {
+        "end": {
+          "col": 16,
+          "line": 40,
+        },
+        "postExprComment": undefined,
+        "preExprComments": [],
+        "start": {
+          "col": 12,
+          "line": 40,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 16,
+            "line": 40,
+          },
+          "start": {
+            "col": 12,
+            "line": 40,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 16,
+              "line": 40,
+            },
+            "start": {
+              "col": 12,
+              "line": 40,
+            },
+            "type": "Bool",
+            "value": "true",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 9,
+          "line": 40,
+        },
+        "start": {
+          "col": 1,
+          "line": 40,
+        },
+        "type": "Ident",
+        "value": "enabled?",
+      },
+      "postNameComments": [],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 40,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 22,
+        "line": 41,
+      },
+      "expr": {
+        "end": {
+          "col": 22,
+          "line": 41,
+        },
+        "postExprComment": undefined,
+        "preExprComments": [],
+        "start": {
+          "col": 18,
+          "line": 41,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 22,
+            "line": 41,
+          },
+          "start": {
+            "col": 18,
+            "line": 41,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 22,
+              "line": 41,
+            },
+            "start": {
+              "col": 18,
+              "line": 41,
+            },
+            "type": "Bool",
+            "value": "true",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 15,
+          "line": 41,
+        },
+        "start": {
+          "col": 1,
+          "line": 41,
+        },
+        "type": "String",
+        "value": [
+          "totally true",
+        ],
+      },
+      "postNameComments": [],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 41,
+      },
+      "type": "Attr",
+    },
+    {
+      "end": {
+        "col": 18,
+        "line": 43,
+      },
+      "expr": {
+        "end": {
+          "col": 18,
+          "line": 43,
+        },
+        "postExprComment": undefined,
+        "preExprComments": [],
+        "start": {
+          "col": 13,
+          "line": 43,
+        },
+        "type": "Expr",
+        "value": {
+          "end": {
+            "col": 18,
+            "line": 43,
+          },
+          "start": {
+            "col": 13,
+            "line": 43,
+          },
+          "type": "SubExpr",
+          "value": {
+            "end": {
+              "col": 18,
+              "line": 43,
+            },
+            "start": {
+              "col": 13,
+              "line": 43,
+            },
+            "type": "Bool",
+            "value": "false",
+          },
+        },
+      },
+      "name": {
+        "end": {
+          "col": 10,
+          "line": 43,
+        },
+        "start": {
+          "col": 1,
+          "line": 42,
+        },
+        "type": "String",
+        "value": [
+          "totally",
+          "not true",
+        ],
+      },
+      "postNameComments": [],
+      "preNameComments": [],
+      "start": {
+        "col": 1,
+        "line": 42,
+      },
+      "type": "Attr",
+    },
+  ],
+  "start": {
+    "col": 1,
+    "line": 1,
+  },
+  "type": "Root",
+}
+`;

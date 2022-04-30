@@ -231,9 +231,7 @@ export default class Parser {
 	parseExpr(): ExprNode {
 		const preExprComments = this.parseComments();
 
-		const token = this.lexer.peek();
-
-		let value = this.parseSubExpr();
+		const value = this.parseSubExpr();
 
 		const whitespaceToken = this.lexer.tryLex(TokenType.Whitespace);
 

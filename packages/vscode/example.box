@@ -22,10 +22,10 @@ definitely_false = false
 " = "something"
 
 set = {
-	decimal = 1_000_000.000_000
-	binary = 0b0000_0001
-	octal = 0o0123_4567
-	hex = 0xdead_beef // Capital letters can be used too!
+	decimal = -1_000_000.000_000
+	binary = -0b0000_0001
+	octal = -0o0123_4567
+	hex = -0xdead_beef // Capital letters can be used too!
 }
 
 list = [
@@ -33,3 +33,5 @@ list = [
 	true
 	"three"
 ]
+
+bool? = false

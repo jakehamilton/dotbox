@@ -12,6 +12,7 @@ import {
 	RootNode,
 	StringNode,
 } from "./parser/ast";
+import { Result } from "./util/result";
 
 export * from "./lexer/tokens";
 export * from "./parser/ast";
@@ -177,10 +178,16 @@ export class Compiler {
 	}
 }
 
-export const compile = (input: string) => {
+export const compile = (
+	input: string
+): Result<object, Array<LexerError | ParserError>> => {
 	const compiler = new Compiler();
 
 	compiler.compile(input);
 
-	return compiler;
+	if (compiler.errors.length > 0) {
+		return { value: undefined, error: compiler.errors };
+	} else {
+		return { value: compiler.result, error: undefined };
+	}
 };

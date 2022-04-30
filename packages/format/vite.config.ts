@@ -7,6 +7,7 @@ import { escapeRegExp } from "lodash";
 
 const externals = [
 	...builtins,
+	// @ts-ignore
 	...Object.keys(pkg.dependencies || {}).map(
 		(name) => new RegExp(`^${escapeRegExp(name)}(\\/.+)?$`)
 	),

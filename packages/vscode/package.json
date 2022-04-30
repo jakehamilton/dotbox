@@ -1,37 +1,40 @@
 {
-	"name": "dotbox-vscode",
-	"displayName": "DotBox",
-	"description": "DotBox language support",
-	"version": "0.0.1",
-	"titan": {
-		"publish": false
-	},
-	"engines": {
-		"vscode": "^1.66.0"
-	},
-	"categories": [
-		"Programming Languages"
-	],
-	"contributes": {
-		"languages": [
-			{
-				"id": "dotbox",
-				"aliases": [
-					"DotBox",
-					"dotbox"
-				],
-				"extensions": [
-					".box"
-				],
-				"configuration": "./language-configuration.json"
-			}
-		],
-		"grammars": [
-			{
-				"language": "dotbox",
-				"scopeName": "source.box",
-				"path": "./syntaxes/dotbox.tmLanguage.json"
-			}
-		]
-	}
+    "name": "dotbox-vscode",
+    "displayName": "DotBox",
+    "description": "DotBox language support",
+    "version": "0.0.1",
+    "titan": {
+        "publish": false
+    },
+    "engines": {
+        "vscode": "^1.66.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "dotbox",
+                "aliases": [
+                    "DotBox",
+                    "dotbox"
+                ],
+                "extensions": [
+                    ".box"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "dotbox",
+                "scopeName": "source.box",
+                "path": "./syntaxes/dotbox.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {
+        "vitest": "^0.10.0"
+    }
 }

@@ -4,11 +4,12 @@
 		"module": "ESNext",
 		"moduleResolution": "node",
 		"lib": ["es2015", "ESNext"],
-		"types": ["vite/client"],
+		"types": ["vite/client", "node"],
 		"allowSyntheticDefaultImports": true,
 		"resolveJsonModule": true,
 		"paths": {},
-		"declaration": true
+		"declaration": true,
+		"typeRoots": ["src/types"]
 	},
 	"include": ["./src/**/*"],
 	"exclude": ["./src/**/*.spec.*", "./src/**/__tests__/*"]

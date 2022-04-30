@@ -19,7 +19,7 @@ import {
 	BoolNode,
 	ListNode,
 } from "@dotbox/compiler";
-import Coder from "@littlethings/coder";
+import LineCoder from "./util/LineCoder";
 
 const sanitizeString = (input: string) => {
 	return input.replaceAll('"', '\\"');
@@ -52,25 +52,30 @@ export class Formatter {
 	}
 
 	formatRoot(root: RootNode): string {
-		const coder = new Coder();
+		const coder = new LineCoder();
 
 		this.formatAttrsNodes(coder, root.nodes, [NodeType.Root]);
-
-		console.log(coder.code);
 
 		return coder.code;
 	}
 
-	formatAttrs(coder: Coder, attrs: AttrsNode, scope: Array<NodeType>) {
+	formatAttrs(coder: LineCoder, attrs: AttrsNode, scope: Array<NodeType>) {
 		const subScope = [...scope, NodeType.Attrs];
 
-		coder.openBlock();
-		this.formatAttrsNodes(coder, attrs.nodes, subScope);
-		coder.closeBlock();
+		if (attrs.nodes.length === 0) {
+			coder.line("{ }");
+		} else {
+			coder.line("{");
+			coder.indent();
+			this.formatAttrsNodes(coder, attrs.nodes, subScope);
+
+			coder.dedent();
+			coder.line("}");
+		}
 	}
 
 	formatAttrsNodes(
-		coder: Coder,
+		coder: LineCoder,
 		nodes: Array<AttrNode | CommentNode>,
 		scope: Array<NodeType>
 	) {
@@ -84,13 +89,9 @@ export class Formatter {
 					break;
 				case NodeType.Comment:
 					this.formatComment(coder, node, scope);
-					console.log({
-						after: coder.code,
-					});
 					break;
 			}
 
-			console.log(node, next);
 			if (next && next.start.line - node.end.line > 1) {
 				coder.line("");
 			}
@@ -98,7 +99,7 @@ export class Formatter {
 	}
 
 	formatComment(
-		coder: Coder,
+		coder: LineCoder,
 		node: CommentNode,
 		scope: Array<NodeType>,
 		inlineHint?: boolean
@@ -116,12 +117,39 @@ export class Formatter {
 		} else {
 			const lines = node.value.map((line) => line.replace(/^\t*/, ""));
 			if (isInline) {
+				let isSingleLine = true;
+
+				let contentLine: string | null = null;
+				for (let i = 0; i < lines.length; i++) {
+					if (lines[i] && !lines[i].match(/^\s+$/)) {
+						if (contentLine !== null) {
+							isSingleLine = false;
+							break;
+						} else {
+							contentLine = lines[i];
+						}
+					}
+				}
+
 				if (lines.length === 1) {
-					coder.code += `/* ${lines[0]} */`;
+					coder.line(`/* ${lines[0]} */`);
+				} else if (isSingleLine && contentLine.length < 10) {
+					coder.line(`/* ${contentLine.trim()} */`);
 				} else {
-					coder.line(`/* ${lines[0]}`);
+					coder.line(`/*`);
 					coder.indent();
-					for (const line of lines.slice(1)) {
+					coder.line(lines[0]);
+					for (let i = 1; i < lines.length; i++) {
+						const line = lines[i];
+
+						if (
+							i !== 1 &&
+							i === lines.length - 1 &&
+							(line.match(/^\s+$/) || line === "")
+						) {
+							continue;
+						}
+
 						coder.line(`${line}`);
 					}
 					coder.dedent();
@@ -133,8 +161,19 @@ export class Formatter {
 				} else {
 					coder.line(`/*`);
 					coder.indent();
-					for (const line of lines) {
-						coder.line(line);
+					coder.line(lines[0]);
+					for (let i = 1; i < lines.length; i++) {
+						const line = lines[i];
+
+						if (
+							i !== 1 &&
+							i === lines.length - 1 &&
+							(line.match(/^\s+$/) || line === "")
+						) {
+							continue;
+						}
+
+						coder.line(`${line}`);
 					}
 					coder.dedent();
 					coder.line(`*/`);
@@ -143,12 +182,12 @@ export class Formatter {
 		}
 	}
 
-	formatAttr(coder: Coder, attr: AttrNode, scope: Array<NodeType>) {
+	formatAttr(coder: LineCoder, attr: AttrNode, scope: Array<NodeType>) {
 		const subScope = [...scope, NodeType.Attr];
 
-		const nameCoder = new Coder();
-		const postNameCommentsCoder = new Coder();
-		const exprCoder = new Coder();
+		const nameCoder = new LineCoder();
+		const postNameCommentsCoder = new LineCoder();
+		const exprCoder = new LineCoder();
 
 		const isExprOnNewLine =
 			(attr.expr as ExprNode).value.value.type === NodeType.String &&
@@ -183,18 +222,18 @@ export class Formatter {
 					attr.postNameComments[0].value[0].length > 40));
 
 		if (isIndented && !isExprOnNewLine) {
-			exprCoder.code += "= ";
+			exprCoder.code += "=";
 		}
 
 		this.formatExpr(exprCoder, attr.expr as ExprNode, subScope);
 
 		if (isIndented) {
-			for (const line of nameCoder.code.trimEnd().split("\n")) {
+			for (const line of nameCoder.trimEnd()) {
 				coder.line(line);
 			}
 			coder.indent();
 
-			for (const line of postNameComment.split("\n")) {
+			for (const line of postNameCommentsCoder.lines) {
 				coder.line(line);
 			}
 
@@ -206,7 +245,8 @@ export class Formatter {
 			coder.line(`${nameCoder.code.trimEnd()}${comment} =`);
 		} else {
 			const comment = postNameComment ? ` ${postNameComment}` : "";
-			exprCoder.code = `${nameCoder.code.trimEnd()}${comment} = ${
+			const preExprWhitespace = exprCoder.lines[0] === "" ? "" : " ";
+			exprCoder.code = `${nameCoder.code.trimEnd()}${comment} =${preExprWhitespace}${
 				exprCoder.code
 			}`;
 		}
@@ -215,9 +255,7 @@ export class Formatter {
 			(attr.expr as ExprNode).value.value.type === NodeType.String &&
 			(attr.expr as ExprNode).preExprComments.length === 0;
 
-		const [firstExprLine, ...exprLines] = exprCoder.code
-			.trimEnd()
-			.split("\n");
+		const [firstExprLine, ...exprLines] = exprCoder.trimEnd();
 
 		if (!isIndented && isExprOnNewLine) {
 			coder.indent();
@@ -247,11 +285,11 @@ export class Formatter {
 		}
 	}
 
-	formatIdent(coder: Coder, ident: IdentNode, scope: Array<NodeType>) {
+	formatIdent(coder: LineCoder, ident: IdentNode, scope: Array<NodeType>) {
 		coder.line(ident.value);
 	}
 
-	formatString(coder: Coder, string: StringNode, scope: Array<NodeType>) {
+	formatString(coder: LineCoder, string: StringNode, scope: Array<NodeType>) {
 		if (string.value.length === 1) {
 			coder.line(`"${sanitizeString(string.value[0])}"`);
 		} else {
@@ -263,7 +301,7 @@ export class Formatter {
 		}
 	}
 
-	formatExpr(coder: Coder, expr: ExprNode, scope: Array<NodeType>) {
+	formatExpr(coder: LineCoder, expr: ExprNode, scope: Array<NodeType>) {
 		const parent = scope[scope.length - 1];
 		const isIndented =
 			parent === NodeType.Attr && expr.preExprComments.length > 0;
@@ -273,7 +311,11 @@ export class Formatter {
 		}
 
 		if (expr.preExprComments.length > 0) {
+			const currentIndent = coder.currentIndent;
+
+			coder.currentIndent = 0;
 			coder.line("");
+			coder.currentIndent = currentIndent;
 		}
 
 		for (const comment of expr.preExprComments) {
@@ -282,7 +324,7 @@ export class Formatter {
 
 		const node = expr.value.value;
 
-		const valueCoder = new Coder();
+		const valueCoder = new LineCoder();
 
 		switch (node.type) {
 			case NodeType.Number:
@@ -303,21 +345,31 @@ export class Formatter {
 		}
 
 		if (expr.postExprComment) {
-			valueCoder.code = `${valueCoder.code.trimEnd()} `;
+			const postExprCommentCoder = new LineCoder();
 
-			this.formatComment(valueCoder, expr.postExprComment, scope);
+			this.formatComment(
+				postExprCommentCoder,
+				expr.postExprComment,
+				scope
+			);
+
+			const [firstLine, ...rest] = postExprCommentCoder.lines;
+
+			valueCoder.lines[valueCoder.lines.length - 1] = `${
+				valueCoder.lines[valueCoder.lines.length - 1]
+			} ${firstLine}`;
+
+			valueCoder.importLines(rest);
 		}
 
-		for (const line of valueCoder.code.trim().split("\n")) {
-			coder.line(line);
-		}
+		coder.importLines(valueCoder.trim());
 
 		if (isIndented) {
 			coder.dedent();
 		}
 	}
 
-	formatNumber(coder: Coder, number: NumberNode, scope: Array<NodeType>) {
+	formatNumber(coder: LineCoder, number: NumberNode, scope: Array<NodeType>) {
 		const sign = number.isNegative ? "-" : "";
 		switch (number.kind) {
 			case NumberNodeKind.Decimal:
@@ -335,34 +387,38 @@ export class Formatter {
 		}
 	}
 
-	formatBool(coder: Coder, bool: BoolNode, scope: Array<NodeType>) {
+	formatBool(coder: LineCoder, bool: BoolNode, scope: Array<NodeType>) {
 		coder.line(bool.value);
 	}
 
-	formatList(coder: Coder, list: ListNode, scope: Array<NodeType>) {
-		const subScope = [...scope, NodeType.List];
-		coder.line("[");
-		coder.indent();
+	formatList(coder: LineCoder, list: ListNode, scope: Array<NodeType>) {
+		if (list.value.length === 0) {
+			coder.line("[ ]");
+		} else {
+			const subScope = [...scope, NodeType.List];
+			coder.line("[");
+			coder.indent();
 
-		for (let i = 0; i < list.value.length; i++) {
-			const item = list.value[i];
-			const next = list.value[i + 1];
-			switch (item.type) {
-				case NodeType.Expr:
-					this.formatExpr(coder, item, subScope);
-					break;
-				case NodeType.Comment:
-					this.formatComment(coder, item, subScope);
-					break;
+			for (let i = 0; i < list.value.length; i++) {
+				const item = list.value[i];
+				const next = list.value[i + 1];
+				switch (item.type) {
+					case NodeType.Expr:
+						this.formatExpr(coder, item, subScope);
+						break;
+					case NodeType.Comment:
+						this.formatComment(coder, item, subScope);
+						break;
+				}
+
+				if (next && next.start.line - item.end.line > 1) {
+					coder.line("");
+				}
 			}
 
-			if (next && next.start.line - item.end.line > 1) {
-				coder.line("");
-			}
+			coder.dedent();
+			coder.line("]");
 		}
-
-		coder.dedent();
-		coder.line("]");
 	}
 }
 

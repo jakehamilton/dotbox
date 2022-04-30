@@ -3,6 +3,7 @@
 		"outDir": "./dist",
 		"module": "ESNext",
 		"moduleResolution": "node",
+		"target": "ESNext",
 		"lib": ["es2015", "ESNext"],
 		"types": ["vite/client"],
 		"allowSyntheticDefaultImports": true,

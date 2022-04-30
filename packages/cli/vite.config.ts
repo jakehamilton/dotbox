@@ -7,6 +7,7 @@ import { escapeRegExp } from "lodash";
 
 const externals = [
 	...builtins,
+	// @ts-ignore
 	...Object.keys(pkg.dependencies || {}).map(
 		(name) => new RegExp(`^${escapeRegExp(name)}(\\/.+)?$`)
 	),
@@ -19,6 +20,9 @@ export default defineConfig({
 			entry: "./src/index.ts",
 			fileName: (format) => `index.${format}.js`,
 			formats: ["cjs"],
+		},
+		rollupOptions: {
+			external: ["fs/promises"],
 		},
 	},
 });
