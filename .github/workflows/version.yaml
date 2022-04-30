@@ -54,10 +54,10 @@ jobs:
               run: |
                   npm run test:changed
             - name: Version Packages
-              run: npm run version -- --dry-run
+              run: npm run version
             - name: Publish Packages
-              run: npm run publish -- --dry-run
-            # - name: Push
-            #   run: |
-            #       git push
-            #       git push --tags
+              run: npm run publish
+            - name: Push
+              run: |
+                  git push
+                  git push --tags
