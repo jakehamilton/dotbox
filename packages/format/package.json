@@ -7,6 +7,10 @@
     "publishConfig": {
         "access": "public"
     },
+    "files": [
+        "dist/**/*",
+        "CHANGELOG.md"
+    ],
     "scripts": {
         "clean": "rimraf ./dist",
         "build": "npm run build:lib && npm run build:types",
