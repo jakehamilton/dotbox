@@ -1,0 +1,56 @@
+.Compile {
+	padding-top: 2rem;
+}
+
+.CompileLogo {
+	display: block;
+	margin: 0 auto;
+	width: 16rem;
+	height: 16rem;
+}
+
+.CompileTitle {
+	text-align: center;
+}
+
+.CompileSubtitle {
+	display: block;
+	margin: 0 auto;
+	max-width: 800px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.CompileLinks {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+}
+
+.CompileLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	border-radius: 50%;
+	transition: background 100ms ease, transform 100ms ease-out;
+	transform: translateY(0);
+}
+
+.CompileLink:hover {
+	background: var(--text-color);
+	transform: translateY(-2px);
+}
+
+.CompileLink:active {
+	transform: translateY(2px);
+}
+
+.CompileLink:hover .CompileLinkIcon {
+	color: var(--background-color);
+}
+
+.CompileLinkIcon {
+	color: var(--text-color);
+	transition: color 100ms ease;
+}

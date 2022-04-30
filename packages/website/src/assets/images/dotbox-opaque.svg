@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 135.46666 135.46667"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="dotbox-opaque.svg"
+   inkscape:export-filename="/home/short/work/@dotbox/packages/website/src/assets/images/dotbox.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="512px"
+     inkscape:zoom="0.87433889"
+     inkscape:cx="13.724655"
+     inkscape:cy="443.76386"
+     inkscape:window-width="2560"
+     inkscape:window-height="1375"
+     inkscape:window-x="26"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.264583;paint-order:markers fill stroke"
+       id="rect34537"
+       width="135.46666"
+       height="135.46666"
+       x="3.5603841e-06"
+       y="3.5603841e-06" />
+    <path
+       id="rect3269"
+       style="fill:#222222;fill-opacity:1;stroke-width:0.264583;paint-order:markers fill stroke"
+       d="M 4.2333347,4.2333358 V 131.23333 H 131.23333 V 4.2333358 Z m 3.96875,3.96875 H 127.26458 V 127.26458 H 8.2020847 Z" />
+    <g
+       id="g34289"
+       transform="translate(-160.48059,20.827331)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:53.2909px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.213163"
+         x="186.08618"
+         y="66.304619"
+         id="text7828"><tspan
+           sodipodi:role="line"
+           id="tspan7826"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.2909px;font-family:'Hack Nerd Font';-inkscape-font-specification:'Hack Nerd Font Bold';stroke-width:0.213163"
+           x="186.08618"
+           y="66.304619">BOX</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:53.2909px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.213163"
+         x="163.44762"
+         y="65.966347"
+         id="text7828-7"><tspan
+           sodipodi:role="line"
+           id="tspan7826-5"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.2909px;font-family:'Hack Nerd Font';-inkscape-font-specification:'Hack Nerd Font Bold';stroke-width:0.213163"
+           x="163.44762"
+           y="65.966347">.</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="237.37004"
+       y="20.16432"
+       id="text20774"><tspan
+         sodipodi:role="line"
+         id="tspan20772"
+         style="stroke-width:0.264583"
+         x="237.37004"
+         y="20.16432" /></text>
+  </g>
+</svg>

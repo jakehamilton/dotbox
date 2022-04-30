@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"target": "ESNext",
+		"lib": ["es2015", "ESNext", "DOM"],
+		"types": ["vite/client"],
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"paths": {},
+		"declaration": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact"
+	},
+	"include": ["./src/**/*"],
+	"exclude": ["./src/**/*.spec.*", "./src/**/__tests__/*"]
+}

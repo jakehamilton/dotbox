@@ -1,0 +1,56 @@
+.Hero {
+	padding-top: 2rem;
+}
+
+.HeroLogo {
+	display: block;
+	margin: 0 auto;
+	width: 16rem;
+	height: 16rem;
+}
+
+.HeroTitle {
+	text-align: center;
+}
+
+.HeroSubtitle {
+	display: block;
+	margin: 0 auto;
+	max-width: 800px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.HeroLinks {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+}
+
+.HeroLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	border-radius: 50%;
+	transition: background 100ms ease, transform 100ms ease-out;
+	transform: translateY(0);
+}
+
+.HeroLink:hover {
+	background: var(--text-color);
+	transform: translateY(-2px);
+}
+
+.HeroLink:active {
+	transform: translateY(2px);
+}
+
+.HeroLink:hover .HeroLinkIcon {
+	color: var(--background-color);
+}
+
+.HeroLinkIcon {
+	color: var(--text-color);
+	transition: color 100ms ease;
+}

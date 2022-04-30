@@ -1,0 +1,56 @@
+.Install {
+	padding-top: 2rem;
+}
+
+.InstallLogo {
+	display: block;
+	margin: 0 auto;
+	width: 16rem;
+	height: 16rem;
+}
+
+.InstallTitle {
+	text-align: center;
+}
+
+.InstallSubtitle {
+	display: block;
+	margin: 0 auto;
+	max-width: 800px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.InstallLinks {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+}
+
+.InstallLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	border-radius: 50%;
+	transition: background 100ms ease, transform 100ms ease-out;
+	transform: translateY(0);
+}
+
+.InstallLink:hover {
+	background: var(--text-color);
+	transform: translateY(-2px);
+}
+
+.InstallLink:active {
+	transform: translateY(2px);
+}
+
+.InstallLink:hover .InstallLinkIcon {
+	color: var(--background-color);
+}
+
+.InstallLinkIcon {
+	color: var(--text-color);
+	transition: color 100ms ease;
+}

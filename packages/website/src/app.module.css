@@ -1,0 +1,13 @@
+.App {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 4rem;
+}
+
+.AppContent {
+	width: 100%;
+	max-width: 1200px;
+}

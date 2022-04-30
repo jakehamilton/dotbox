@@ -1,0 +1,39 @@
+.Code {
+	margin: 0 auto;
+	border-radius: 0.5rem;
+	max-width: 800px;
+	tab-size: 2;
+}
+
+.Code:global(.hljs) :global(.hljs-attr) {
+	color: #8fbcbb !important;
+}
+
+.Code:global(.hljs) :global(.hljs-number) {
+	color: #b48ead !important;
+}
+
+.Code:global(.hljs) :global(.hljs-keyword) {
+	color: #81a1c1 !important;
+}
+
+@media screen and (prefers-color-scheme: light) {
+	.Code {
+		color: #434c5e !important;
+		background: #eceff4 !important;
+	}
+
+	.Code:global(.hljs) :global(.hljs-punctuation) {
+		color: hsl(219, 28%, 64%) !important;
+	}
+
+	.Code:global(.hljs) :global(.hljs-comment) {
+		color: hsl(219, 28%, 64%) !important;
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	.Code {
+		border: 1px solid #434c5e !important;
+	}
+}

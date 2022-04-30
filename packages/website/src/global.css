@@ -1,0 +1,62 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+input,
+button,
+select {
+	appearance: none;
+	-webkit-appearance: none;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0;
+}
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
+body {
+	min-height: 100vh;
+	text-rendering: optimizeLegibility;
+}
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+body {
+	font-family: "Nunito", Helvetica, "Helvetica Neue", San Francisco, Arial,
+		sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: var(--text-color);
+	background: var(--background-color);
+}
+
+h1 {
+	font-size: 4.5rem;
+}
+
+h2 {
+	font-size: 4rem;
+}
