@@ -12,7 +12,6 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-            LOG_LEVEL: TRACE
         steps:
             - name: Turnstyle
               uses: softprops/turnstyle@v1
@@ -39,7 +38,7 @@ jobs:
                   node-version: "17.x"
             - name: Configure NPM
               run: |
-                  npm i -g npm@7
+                  npm i -g npm@8
                   npm config set registry https://registry.npmjs.org/
                   npm config set //registry.npmjs.org/:_authToken=\${NPM_TOKEN}
             - name: Check Authentication with Registry
@@ -50,9 +49,6 @@ jobs:
               run: |
                   npm run bootstrap:changed
                   npm run build:changed
-            - name: Test
-              run: |
-                  npm run test:changed
             - name: Version Packages
               run: npm run version
             - name: Publish Packages
