@@ -33,5 +33,13 @@
         "preact-feather": "^4.2.1",
         "highlight.js": "^11.5.1",
         "react-highlight": "^0.14.0"
+    },
+    "homepage": "https://github.com/jakehamilton/dotbox",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jakehamilton/dotbox.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jakehamilton/dotbox/issues"
     }
 }

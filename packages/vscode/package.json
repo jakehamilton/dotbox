@@ -36,5 +36,13 @@
     },
     "devDependencies": {
         "vitest": "^0.10.0"
+    },
+    "homepage": "https://github.com/jakehamilton/dotbox",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jakehamilton/dotbox.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jakehamilton/dotbox/issues"
     }
 }
