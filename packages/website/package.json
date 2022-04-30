@@ -28,7 +28,7 @@
         "preact": "^10.7.1"
     },
     "dependencies": {
-        "@dotbox/compiler": "^1.0.0",
+        "@dotbox/compiler": "1.0.0",
         "@littlethings/coder": "^1.1.2",
         "preact-feather": "^4.2.1",
         "highlight.js": "^11.5.1",
