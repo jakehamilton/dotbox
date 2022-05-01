@@ -67,7 +67,6 @@ export default function Hero() {
 				>
 					<Package class={styles.HeroLinkIcon} />
 				</a>
-
 				<a
 					class={styles.HeroLink}
 					href="https://marketplace.visualstudio.com/items?itemName=jakehamilton.dotbox-vscode"
