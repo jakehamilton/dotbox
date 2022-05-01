@@ -2,7 +2,7 @@
     "name": "@dotbox/vscode",
     "displayName": "DotBox",
     "description": "DotBox language support",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "titan": {
         "publish": false
     },
