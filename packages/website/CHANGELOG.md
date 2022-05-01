@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.1.1
+
+### Chores
+
+- format
+
 ## 1.1.0
 
 ### Features
