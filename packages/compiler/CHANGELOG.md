@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.2
+
+### Chores
+
+- update dependencies
+
 ## 1.0.1
 
 ### Other
