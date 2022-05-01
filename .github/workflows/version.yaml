@@ -49,6 +49,9 @@ jobs:
               run: |
                   npm run bootstrap:changed
                   npm run build:changed
+            - name: Test
+              run: |
+                  npm run test:changed
             - name: Version Packages
               run: npm run version
             - name: Publish Packages
