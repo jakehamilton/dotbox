@@ -1,5 +1,5 @@
 {
-    "name": "@dotbox/vscode",
+    "name": "dotbox-vscode",
     "displayName": "DotBox",
     "description": "DotBox language support",
     "version": "0.1.1",
