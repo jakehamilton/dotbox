@@ -6,6 +6,11 @@
     "titan": {
         "publish": false
     },
+    "vsce": {
+        "message": "chore(release): publish",
+        "no-git-tag-version": true,
+        "no-update-package-json": true
+    },
     "engines": {
         "vscode": "^1.66.0"
     },
