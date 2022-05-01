@@ -115,5 +115,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# VSCode
+*.vsix
+
 tmp
 .DS_Store

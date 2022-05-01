@@ -3,6 +3,7 @@
     "displayName": "DotBox",
     "description": "DotBox language support",
     "version": "0.1.1",
+    "publisher": "jakehamilton",
     "titan": {
         "publish": false
     },
