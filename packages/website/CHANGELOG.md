@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.1.0
+
+### Features
+
+- add links to extension on marketplace
+
 ## 1.0.2
 
 ### Chores
