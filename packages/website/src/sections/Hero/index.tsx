@@ -1,4 +1,4 @@
-import { Github, Package } from "preact-feather";
+import { Github, Package, ShoppingBag } from "preact-feather";
 import Code from "../../components/Code";
 import Gap from "../../components/Gap";
 import Logo from "../../components/Logo";
@@ -66,6 +66,16 @@ export default function Hero() {
 					rel="noopener noreferrer"
 				>
 					<Package class={styles.HeroLinkIcon} />
+				</a>
+
+				<a
+					class={styles.HeroLink}
+					href="https://marketplace.visualstudio.com/items?itemName=jakehamilton.dotbox-vscode"
+					aria-label="VSCode Marketplace"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<ShoppingBag class={styles.HeroLinkIcon} />
 				</a>
 			</div>
 			<Code>{example}</Code>
