@@ -17,6 +17,7 @@
     "categories": [
         "Programming Languages"
     ],
+    "icon": "images/dotbox-opaque.png",
     "contributes": {
         "languages": [
             {
