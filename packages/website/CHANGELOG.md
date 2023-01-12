@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.1
+
+### Other
+
+- remove unused dependency from website
+
 ## 1.2.0
 
 ### Features
